@@ -13,7 +13,7 @@ game_state.main.prototype = {
         game.load.image('sky', 'assets/sky.png');
         game.load.image('ground', 'assets/platform.png');
         game.load.image('star', 'assets/star.png');
-        game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+        game.load.spritesheet('dude', 'assets/dwarf.png', 64, 44);
     
     },
     create: function() {
@@ -57,8 +57,8 @@ game_state.main.prototype = {
         this.player.body.bounce.y = 0.25;
         this.player.body.gravity.y = 800;
         this.player.body.collideWorldBounds = true;
-        this.player.animations.add('left', [0, 1, 2, 3], 10, true);
-        this.player.animations.add('right', [5, 6, 7, 8], 10, true);
+        // this.player.animations.add('left', [10, 11, 12, 13], 10, true);
+        // this.player.animations.add('right', [1, 2, 3, 4], 10, true);
         
         //Controls
         this.cursors = game.input.keyboard.createCursorKeys();
