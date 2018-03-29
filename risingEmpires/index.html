@@ -1,0 +1,38 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Rising Empires</title>
+    <script src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    
+    <div id="UI">
+        <p id="goldText">Gold: 0</p>
+        <p id="settlerText">Settlers: 1</p> <button id="settle">Settle A City</button>
+        <p id="turnText">Turn: 0</p><button id="nextTurn">Next Turn</button>
+        
+    </div>
+    
+    <div id="phaserGame"></div>
+    
+    <p id="gameMessages">Use the left and right arrow keys to navagate throught the story. Use the up arrow to start the game.</p>
+    
+    <script type="text/javascript" src="gameDef.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="building.js"></script>
+    <script type="text/javascript" src="units.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="story.js"></script>
+    
+    <div id="selectMenu">
+        <p>Selected: </p>
+        <p id="cityIncomeText"></p>
+        <select id="production">
+            <option selected=""></option>
+            <option></option>
+        </select>
+    </div>
+</body>
+</html>

@@ -10,8 +10,10 @@ var playerImmune = false;
 var health = 20;
 var ground;
 var score = 0;
+var enemyhp = 3;
 var enemyspeed = 100;
 var round = 1;
+var enemydamage = 4;
 
 game_state.main = function () {};
 game_state.main.prototype = {
@@ -113,10 +115,10 @@ game_state.main.prototype = {
             allEnemies[i].animations.add('attackRight', [10, 11], 6, true);
             allEnemies[i].animations.add('attackLeft', [4, 5], 6, true);
             allEnemies[i].isActive = false;
-            allEnemies[i].hp = 3;
+            allEnemies[i].hp = enemyhp;
             allEnemies[i].scale.setTo(.5, .5);
             allEnemies[i].body.gravity.y = 750;
-            allEnemies[i].body.bounce.y = .9;
+            allEnemies[i].body.bounce.y = .75;
             allEnemies[i].body.collideWorldBounds = true;
             allEnemies[i].body.setSize(40, 80, 15, 0);
         }
@@ -138,9 +140,7 @@ game_state.main.prototype = {
         game.physics.arcade.collide(this.enemies, this.enemies);
         game.physics.arcade.collide(this.axe, this.platforms);
         
-        game.physics.arcade.overlap(this.player, this.enemies, this.playerHit, null, this);
-        game.physics.arcade.overlap(this.axe, this.enemies, this.axeHit, null, this);
-
+        
         //Controls
         //Animations and Move
         this.player.body.velocity.x = 0;
@@ -281,14 +281,23 @@ game_state.main.prototype = {
         this.scoreText.text = 'Orc Heads: ' + score;
         if (health <= 0) {
             this.clear();
+            score = 0;
             game.state.start("death");
         }
         if (this.enemyCount == 0) {
             this.clear();
             round ++; 
-            enemyspeed = enemyspeed * 1.3;
+            if (enemyhp < 7) {
+                enemyhp ++;
+            }
+            enemydamage ++;
+            if (enemyspeed < 150) {
+                enemyspeed += 10;
+            }
             game.state.start("main");
         }
+        game.physics.arcade.overlap(this.player, this.enemies, this.playerHit, null, this);
+        game.physics.arcade.overlap(this.axe, this.enemies, this.axeHit, null, this);
         
 
     },
@@ -296,16 +305,15 @@ game_state.main.prototype = {
         enemy.hp --;
         axe.kill();
         enemy.isActive = true;
-        
         if (enemy.hp <= 0) {
             enemy.kill();
-            score ++;
+            score += round;
             this.enemyCount --;
         }
     },
     playerHit: function() {
         if (!playerImmune) {
-            health -= 5;
+            health -= enemydamage;
             playerImmune = true; 
         }
     },
@@ -313,7 +321,6 @@ game_state.main.prototype = {
         axes = [];
         allEnemies = [];
         health = 20;
-        score = 0;
     }
 };
 game.state.add('main', game_state.main);

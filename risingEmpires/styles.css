@@ -1,0 +1,25 @@
+body {
+    background-color: grey;
+}
+div {
+    margin: 0 auto;
+    display: block;
+    
+}
+#UI {
+    text-align: center;
+    display: inline;
+    border: 5px solid green;
+}
+#phaserGame {
+    border: 5px solid red;
+    padding: 0px;
+}
+button, p {
+    display: inline;
+    background-color: black;
+    color: #c1ae00;
+}
+#goldText {
+    color: #c1ae00;
+}
