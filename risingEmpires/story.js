@@ -1,6 +1,4 @@
 /*global game, game_state*/
-
-
 game_state.story = function () {};
 game_state.story.prototype = {
     preload() {
@@ -49,7 +47,7 @@ game_state.story.prototype = {
                     this.background.loadTexture("plainsTile");
                     this.text.setText("Our people are devastated, but now we have a \nchance to rebuild. You are the one who can lead \nour people to greatness - or confirm our ruin.");
                     break;
-           }
+          }
         } 
         
         //Controls
@@ -79,4 +77,3 @@ game_state.story.prototype = {
 
 game.state.add("story", game_state.story);
 game.state.start("story");
-

@@ -17,7 +17,35 @@
     
     <div id="phaserGame"></div>
     
-    <p id="gameMessages">Use the left and right arrow keys to navagate throught the story. Use the up arrow to start the game.</p>
+    <h3 id="gameMessages">Use the left and right arrow keys to navagate throught the story. Use the up arrow to start the game.</h3>
+    
+    <div> <!--UI - Unit, City, and Tile Info -->
+        <div id="cityInfo">
+            <H4>The city of <span id="cityNameInfo">city name</span></H4>
+            <p>Level: <spand id="cityLevelInfo">1</spand></p>
+            <p>Population: <span id="cityPopInfo">0</span></p>
+            <p>Food Income: <span id="cityFoodInfo">0</span></p>
+            <p>Production Income: <span id="cityProductionInfo">0</span></p>
+            <p>Gold Income: <span id="cityGoldInfo">0</span></p>
+            <p>Currently Building: <span id="cityNowBuildingInfo">nothing</span></p>
+            <p>Buildings: <span id="cityBuildingInfo">none</span></p>
+        </div>
+        <div id="tileInfo">
+            <h4 id="tileTypeInfo"></h4>
+            <p>Food Output: <span id="tileFoodInfo">0</span></p>
+            <p>Production Output: <span id="tileProductionInfo">0</span></p>
+            <p>Gold Output: <span id="tileGoldInfo">0</span></p>
+            <p>Owner: <span id="tileOwnerInfo">No one</span></p>
+        </div>
+        <div id="unitInfo">
+            <h4 id="unitTypeInfo"></h4>
+            <p>Health: <span id="unitHealthInfo">80</span></p>
+            <p>Attack: <span id="unitAttackInfo">10</span></p>
+            <p>Defense: <span id="unitDefenseInfo">10</span></p>
+            <p>This unit <span id="unitCanMove">can</span>move</p>
+            <button id="moveUnit">Move This Unit</button>
+        </div>
+    </div>
     
     <script type="text/javascript" src="gameDef.js"></script>
     <script type="text/javascript" src="map.js"></script>
@@ -25,14 +53,5 @@
     <script type="text/javascript" src="units.js"></script>
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="story.js"></script>
-    
-    <div id="selectMenu">
-        <p>Selected: </p>
-        <p id="cityIncomeText"></p>
-        <select id="production">
-            <option selected=""></option>
-            <option></option>
-        </select>
-    </div>
 </body>
 </html>

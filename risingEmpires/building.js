@@ -37,7 +37,7 @@ class Farm extends TileBuilding {
             production: 0,
             food: 2,
             gold: 0
-        }, 10, x, y);
+        }, 50, x, y);
     }
 }
 
@@ -64,3 +64,24 @@ const unitBuildingRefs = [
     ];
 
 const buildingRefs = [cityBuildingRefs, tileBuildingRefs, unitBuildingRefs];
+
+
+/*
+Buildings:
+City Buildings: 
+
+Tile Buildings: 
+Farm: +2 food
+
+
+
+Unit Buildings: 
+Swordsman: 15 attack, 10 defence
+Spearman: 10 attack, 15 defence
+Archer: 5 ranged attack, 5 defence, 2 range
+
+Resources:
+Settler: 20 production cost
+Gold: +1 gold per production
+
+*/

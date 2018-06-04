@@ -1,9 +1,10 @@
 //This is the Tile class and map array and map generation scripts
 /*global game*/
 const map = [];
+const tilesOwners = [];
 class Tile {
     constructor(terrain, x , y, output) {
-        this.terrain = terrain; //Used for sprite placement
+        this.terrain = terrain; //terrian name
         this.passable = true;
         this.owner = null; /*Owner is an object:
         {
@@ -11,11 +12,11 @@ class Tile {
             city: 0  -- Int (index in list of cities)
         }
         */
+        this.unit = null;
         this.building = null;
         this.x = x; //x in grid chords (Chords in our map array)
         this.y = y; //y grid chords 
-        this.output = output; //Food, production, gold yeild - len 3 array: optional agument for non plains terrain
-        //Each subclass should have its own this.sprite!
+        this.output = output; //Food, production, gold yeild - len 3 array
         this.isClicked = false;
     }
     
@@ -32,7 +33,14 @@ class Plains extends Tile {
 }
 
 
-
+class TileOwnership {
+    constructor(x, y, color) {
+        this.sprite = game.add.sprite(x * 100, y * 100, color);
+        this.sprite.visible = false;
+        this.x = x;
+        this.y = y;
+    }
+}
 
 /*TERRAIN AND OUTPUT VALUES
 Plains: [2, 1, 1]

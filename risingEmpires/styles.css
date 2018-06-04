@@ -6,6 +6,17 @@ div {
     display: block;
     
 }
+h3{
+    display: block;
+    background-color: black;
+    color: red;
+    margin: auto;
+}
+button, p {
+    display: inline;
+    background-color: black;
+    color: #c1ae00;
+}
 #UI {
     text-align: center;
     display: inline;
@@ -15,11 +26,7 @@ div {
     border: 5px solid red;
     padding: 0px;
 }
-button, p {
-    display: inline;
-    background-color: black;
-    color: #c1ae00;
-}
+
 #goldText {
     color: #c1ae00;
 }
